@@ -1,0 +1,15 @@
+{
+  "model_key": "BMW",
+  "mileage": 86425,
+  "engine_power": 190,
+  "fuel": "diesel",
+  "paint_color": "silver",
+  "car_type": "suv",
+  "private_parking_available": false,
+  "has_gps": true,
+  "has_air_conditioning": false,
+  "automatic_car": false,
+  "has_getaround_connect": false,
+  "has_speed_regulator": false,
+  "winter_tires": true
+}

@@ -1,0 +1,10 @@
+ColumnTransformer(transformers=[('categorical_transformer',
+                                 OneHotEncoder(drop='first',
+                                               sparse_output=False),
+                                 ['model_key', 'fuel', 'paint_color',
+                                  'car_type', 'private_parking_available',
+                                  'has_gps', 'has_air_conditioning',
+                                  'automatic_car', 'has_getaround_connect',
+                                  'has_speed_regulator', 'winter_tires']),
+                                ('numerical_transformer', StandardScaler(),
+                                 Index(['mileage', 'engine_power'], dtype='object'))])

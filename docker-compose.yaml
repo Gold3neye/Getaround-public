@@ -1,0 +1,47 @@
+services:
+  getaround-api:
+    container_name: getaround-api  # Nom du conteneur pour le service API
+    image: getaround-api  # Image Docker utilisée pour le service API
+    build: ${PWD}/api  # Répertoire où se trouve le Dockerfile pour construire l'image
+    restart: unless-stopped  # Politique de redémarrage du conteneur
+    volumes:
+      - ${PWD}/api/app.py:/api/app.py  # Liaison entre le fichier local app.py et le conteneur
+      - ${PWD}/data:/data  # Liaison du dossier de données local
+    environment:
+      - PORT=4000  # Variable d'environnement pour le port de service
+    ports:
+      - "4000:4000"  # Mappage du port du conteneur vers le port local
+    networks:
+      - getaround  # Réseau sur lequel le conteneur est connecté
+  getaround-dashboard:
+    container_name: getaround-dashboard  # Nom du conteneur pour le service Dashboard
+    image: getaround-dashboard  # Image Docker utilisée pour le service Dashboard
+    build: ${PWD}/dashboard  # Répertoire où se trouve le Dockerfile pour construire l'image
+    restart: unless-stopped  # Politique de redémarrage du conteneur
+    volumes:
+      - ${PWD}/dashboard/app.py:/dashboard/app.py  # Liaison entre le fichier local app.py et le conteneur
+    environment:
+      - PORT=4000  # Variable d'environnement pour le port de service
+    ports:
+      - "4001:4000"  # Mappage du port du conteneur vers le port local
+    networks:
+      - getaround  # Réseau sur lequel le conteneur est connecté
+  getaround-mlflow:
+    container_name: getaround-mlflow  # Nom du conteneur pour le service MLflow
+    image: getaround-mlflow  # Image Docker utilisée pour le service MLflow
+    build: ${PWD}/mlflow  # Répertoire où se trouve le Dockerfile pour construire l'image
+    restart: unless-stopped  # Politique de redémarrage du conteneur
+    environment:
+      - PORT=4000  # Variable d'environnement pour le port de service
+      - MLFLOW_TRACKING_URI=http://getaround-mlflow:4000  # URI de suivi pour MLflow
+      - BACKEND_STORE_URI=sqlite:///mlflow.db  # URI de la base de données de stockage
+      - ARTIFACT_ROOT=./mlruns  # Chemin de base pour les artefacts MLflow
+    volumes:
+      - ${PWD}/mlflow/mlruns:/mlflow/mlruns  # Liaison du répertoire des exécutions MLflow
+      - ${PWD}/mlflow/mlflow.db:/mlflow/mlflow.db  # Liaison du fichier de base de données de MLflow
+    ports:
+      - "4002:4000"  # Mappage du port du conteneur vers le port local
+    networks:
+      - getaround  # Réseau sur lequel le conteneur est connecté
+networks:
+  getaround:  # Définition du réseau utilisé par les conteneurs

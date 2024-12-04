@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1727698549026
+current_stage: None
+description: null
+last_updated_timestamp: 1727698549026
+name: Random_Forest_car_rental_price
+run_id: 1517315c2e854f27b465ecb1f4c7dec8
+run_link: null
+source: /mlflow/%MLFLOW_TRACKING_URI%/580571605271006448/1517315c2e854f27b465ecb1f4c7dec8/artifacts/car_rental_price
+status: READY
+status_message: null
+storage_location: /mlflow/%MLFLOW_TRACKING_URI%/580571605271006448/1517315c2e854f27b465ecb1f4c7dec8/artifacts/car_rental_price
+user_id: null
+version: 1

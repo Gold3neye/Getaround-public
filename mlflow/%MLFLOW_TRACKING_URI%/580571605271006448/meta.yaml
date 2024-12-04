@@ -1,0 +1,6 @@
+artifact_location: /mlflow/%MLFLOW_TRACKING_URI%/580571605271006448
+creation_time: 1727697819339
+experiment_id: '580571605271006448'
+last_update_time: 1727697819339
+lifecycle_stage: active
+name: car_rental_price

@@ -1,0 +1,15 @@
+artifact_uri: /mlflow/%MLFLOW_TRACKING_URI%/580571605271006448/1517315c2e854f27b465ecb1f4c7dec8/artifacts
+end_time: 1727698549062
+entry_point_name: ''
+experiment_id: '580571605271006448'
+lifecycle_stage: active
+run_id: 1517315c2e854f27b465ecb1f4c7dec8
+run_name: languid-perch-552
+run_uuid: 1517315c2e854f27b465ecb1f4c7dec8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1727697819353
+status: 3
+tags: []
+user_id: unknown
